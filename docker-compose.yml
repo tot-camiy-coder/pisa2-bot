@@ -1,13 +1,13 @@
 services:
   loltrains-bot:
-    container_name: loltrains-tg
+    container_name: loltrains-bot
     build: .
     ports:
       - 8081:8000
     volumes:
-      - /var/www/loltrains-tg/data:/app/data
+      - /var/www/loltrains-bot/data:/app/data
     env_file:
-      - /var/www/loltrains-tg/.env
+      - /var/www/loltrains-bot/.env
     restart: unless-stopped
     networks:
       - frontend
