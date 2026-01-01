@@ -10,7 +10,6 @@ COPY main.py .
 COPY handlers/ ./handlers/
 COPY utils/ ./utils/
 COPY database/ ./database/
-COPY media/ ./media/
 
 EXPOSE 8000/tcp
 
