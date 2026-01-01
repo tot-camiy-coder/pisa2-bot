@@ -1,13 +1,5 @@
-fastapi
 sqlalchemy[asyncio]
-python-jose[cryptography]
-aiocache==0.12.3
 python-dotenv
-uvicorn
-httpx
-passlib[bcrypt]
-bcrypt==4.0.1
 aiosqlite
 python-multipart
-websockets
 aiogram

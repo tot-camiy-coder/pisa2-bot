@@ -1,5 +1,5 @@
 services:
-  loltrains:
+  loltrains-bot:
     container_name: loltrains-tg
     build: .
     ports:

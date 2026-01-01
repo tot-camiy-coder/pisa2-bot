@@ -7,12 +7,10 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 COPY main.py .
-COPY backend/ ./backend/
-COPY services/ ./services/
-COPY dist/ ./dist/
+COPY handlers/ ./handlers/
+COPY utils/ ./utils/
+COPY database/ ./database/
 COPY media/ ./media/
-
-RUN mkdir -p media/chat media/chat_attachments media/photos media/profileb media/defaults media/public
 
 EXPOSE 8000/tcp
 
