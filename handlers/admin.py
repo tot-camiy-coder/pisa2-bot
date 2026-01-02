@@ -295,11 +295,11 @@ async def view_profile(callback: CallbackQuery, state: FSMContext, bot: Bot):
     # Информация из БД
     if db_user:
         text += f"━━━ <b>Данные в боте</b> ━━━\n"
+        if db_user.admin:
+            text += f"⭐ <b>Администратор</b>\n"
         text += f"📛 <b>Сохранённое имя:</b> {db_user.full_name or '—'}\n"
         text += f"👤 <b>Сохранённый @:</b> @{db_user.username or '—'}\n"
         text += f"🚫 <b>Статус:</b> {'💀 Забанен' if db_user.banned else '🟢 Активен'}\n"
-        if db_user.admin:
-            text += f"🎭 <b>Роль: Админ</b>\n"
         
         if db_user.registered_at:
             text += f"📅 <b>Первый контакт:</b> {db_user.registered_at.strftime('%d.%m.%Y %H:%M')}\n"
