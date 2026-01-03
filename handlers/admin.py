@@ -10,6 +10,7 @@ from database.requests import (
     get_users_paginated, toggle_ban_status, get_user_by_telegram_id
 )
 from utils.states import AdminStates
+from handlers.user import get_main_menu_keyboard
 
 admin_router = Router()
 
@@ -101,8 +102,11 @@ async def admin_panel(callback: CallbackQuery, state: FSMContext, bot: Bot):
 async def close_admin(callback: CallbackQuery, state: FSMContext, bot: Bot):
     await cleanup_extra_messages(state, bot, callback.message.chat.id)
     await state.clear()
-    await callback.message.delete()
     await callback.answer("Админ-панель закрыта")
+    keyboard = await get_main_menu_keyboard(callback.from_user.id)
+    await callback.message.edit_text("👋 Привет! Добро пожаловать в официального бота @loltrains", reply_markup=keyboard.as_markup())
+
+
 
 
 @admin_router.callback_query(F.data == "home")
